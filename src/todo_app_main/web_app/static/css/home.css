@@ -1,7 +1,7 @@
 
 :root {
     --backgroun-color: #252525;
-    --text-main-color: #6edc93;
+    --text-main-color: #96afa3;
     --navbar-color: #101010;
     --navbar-drop-color: #202020;
     --left-margin-content: 150px;
@@ -20,24 +20,37 @@ body{
     top: 0;
     left: 0;
     position: absolute;
+    display: grid;
+    grid-template-rows: repeat(2, max-content) auto min-content;
 }
 
-.navbar .top.container {
-    top: 0;
-    left: 0;
+.navbar .container {
     width: auto;
-    height: 35vh;
+    height: 20vh;
     display: grid;
     grid-template-rows: repeat(4,auto);
 }
+.box-icon.profile {
+     margin-top: 2vh;
+     margin-bottom: 3vh;
+     border-radius: 50%;
+ }
 
-.navbar .top.container .profile{
+.box-icon{
+    position: relative;
     background-color: var(--text-main-color);
     width: 2rem;
     height: 2rem;
     align-self: center;
     justify-self: center;
+    border-radius: 25%;
 }
+
+.box-icon:hover {
+    cursor: pointer;
+}
+
+
 
 .resizable .text{
     color: var(--text-main-color);
@@ -92,18 +105,22 @@ body{
     overflow: hidden;
 }
 
-.content .hide-drop{
+.content .hide-drop {
     border: none;
-    width: 40px;
-    height: 40px;
-    background-color: aliceblue;
+    width: 30px;
+    height: 30px;
+    background-color: #94969D77;
     margin: 20px 20px 20px;
     align-items: center;
     justify-items: center;
-    border-radius: 50px;
+    border-radius: 10px;
     display: grid;
 }
 
+.content .hide-drop:hover {
+    background-color: #e0d7d7;
+    cursor: pointer;
+}
 
 .material-icons.arrow-left{
     position: absolute;
