@@ -9,35 +9,59 @@
 </head>
 <body>
 
-    <div class="navbar">
-        <div class="box-icon profile"></div>
-        <div class="top container">
-            <div class="box-icon"></div>
-            <div class="box-icon"></div>
-            <div class="box-icon"></div>
-            <div class="box-icon"></div>
+    <div class="main">
+        <div class="navbar">
+            <div class="box-icon profile"></div>
+            <div class="top container">
+                <div class="box-icon"></div>
+                <div class="box-icon"></div>
+                <div class="box-icon"></div>
+                <div class="box-icon"></div>
+            </div>
+            <div class="bottom container">
+                <div class="box-icon"></div>
+                <div class="box-icon"></div>
+                <div class="box-icon"></div>
+            </div>
         </div>
-        <div class="mid container"></div>
-        <div class="bottom container">
-            <div class="box-icon"></div>
-            <div class="box-icon"></div>
-            <div class="box-icon"></div>
+
+        <div id="navbar-drop" class='resizable'>
+            <div class='resizers'>
+                <div class='resizer right'></div>
+            </div>
+            <div class="container">
+                <div class="top container">
+                    <div class="block">
+                        <p class="text">prueba de overflow</p>
+                    </div>
+                    <div class="block">
+                        <p class="text">prueba de overflow</p>
+                    </div>
+                    <div class="block">
+                        <p class="text">prueba de overflow</p>
+                    </div>
+                </div>
+                <hr class="separator">
+                <div class="middle container">
+                    <p class="text">prueba de overflow</p>
+                    <p class="text">prueba de overflow</p>
+                    <p class="text">prueba de overflow</p>
+                </div>
+                <hr class="separator">
+                <div class="bottom container">
+                    <p class="text">prueba de overflow</p>
+                    <p class="text">prueba de overflow</p>
+                    <p class="text">prueba de overflow</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="content" class="content">
+            <button id="button" class="hide-drop">
+                <span id="drop_icons_right" class="material-icons arrow-right">keyboard_double_arrow_right</span>
+                <span id="drop_icons_left" class="material-icons arrow-left">keyboard_double_arrow_left</span>
+            </button>
         </div>
     </div>
-
-    <div class='resizable'>
-        <div class='resizers'>
-            <div class='resizer right'></div>
-        </div>
-        <p class="text">prueba de overflow</p>
-    </div>
-
-    <div id="content" class="content">
-        <button id="button" class="hide-drop">
-            <span id="drop_icons_right" class="material-icons arrow-right">keyboard_double_arrow_right</span>
-            <span id="drop_icons_left" class="material-icons arrow-left">keyboard_double_arrow_left</span>
-        </button>
-    </div>
-
 </body>
 </html>

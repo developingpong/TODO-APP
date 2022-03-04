@@ -7,10 +7,23 @@
     --left-margin-content: 150px;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
-    margin: 0px !important;
+    margin: 0 auto !important;
     background-color: var(--backgroun-color);
-    overflow: hidden;
+    overflow: clip;
+    width: auto;
+    height: auto;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: min-content min-content max-content;
 }
 
 .navbar {
@@ -19,34 +32,60 @@ body{
     background-color: var(--navbar-color);
     top: 0;
     left: 0;
-    position: absolute;
     display: grid;
-    grid-template-rows: repeat(2, max-content) auto min-content;
+    grid-template-rows: min-content repeat(2, auto);
+    z-index: 10;
 }
 
 .navbar .container {
     width: auto;
-    height: 20vh;
     display: grid;
-    grid-template-rows: repeat(4,auto);
 }
+
+.navbar .top.container {
+    grid-template-rows: repeat(4, max-content);
+}
+.navbar .bottom.container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-self: end;
+    grid-template-rows: repeat(3, min-content);
+    overflow-wrap: anywhere;
+    transition: opacity 0.5s, visibility 1s;
+}
+
+@media screen and (max-height: 450px) {
+    .navbar .bottom.container {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 .box-icon.profile {
-     margin-top: 2vh;
-     margin-bottom: 3vh;
-     border-radius: 50%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 50%;
  }
+
+
 
 .box-icon{
     position: relative;
     background-color: var(--text-main-color);
     width: 2rem;
     height: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     align-self: center;
     justify-self: center;
     border-radius: 25%;
+    transition: width 0.1s, height 0.1s;
 }
 
 .box-icon:hover {
+    width: 2.1rem;
+    height: 2.1rem;
+    background-color: #3f5952;
     cursor: pointer;
 }
 
@@ -63,15 +102,35 @@ body{
 }
 .resizable {
     background: var(--navbar-drop-color);
-    width: auto;
+    width: 25vw;
     min-width: 15vw;
-    max-width: 25vw;
+    max-width: 35vw;
     height: 100vh;
     position: relative;
     float: left;
-    margin-left: 50px;
+}
+
+.resizable .container {
+    width: 90%;
+    display: grid;
+    grid-template-rows: max-content min-content auto min-content auto;
+    overflow: hidden;
+}
+
+.resizable .container .top.container {
+    width: 100%;
     display: grid;
     grid-template-rows: auto auto auto;
+}
+
+.resizable .container .top.container .block {
+    margin: 10px;
+    border-radius: 10%;
+}
+
+.resizable .container .top.container .block:hover {
+    background-color: #e0d7d7;
+
 }
 
 .resizable .resizers{
@@ -95,17 +154,14 @@ body{
 }
 
 .content {
-    top: 0;
     background-color: var(--backgroun-color);
-    position: sticky;
-    float: left;
-    width: 40rem;
+    width: 100%;
     height: 100vh;
-    z-index: -1;
     overflow: hidden;
 }
 
 .content .hide-drop {
+    position: relative;
     border: none;
     width: 30px;
     height: 30px;
@@ -117,7 +173,7 @@ body{
     display: grid;
 }
 
-.content .hide-drop:hover {
+.main .content .hide-drop:hover {
     background-color: #e0d7d7;
     cursor: pointer;
 }
