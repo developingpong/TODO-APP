@@ -1,0 +1,115 @@
+
+:root {
+    --backgroun-color: #252525;
+    --text-main-color: #6edc93;
+    --navbar-color: #101010;
+    --navbar-drop-color: #202020;
+    --left-margin-content: 150px;
+}
+
+body{
+    margin: 0px !important;
+    background-color: var(--backgroun-color);
+    overflow: hidden;
+}
+
+.navbar {
+    height: 100vh;
+    width: 50px;
+    background-color: var(--navbar-color);
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.navbar .top.container {
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 35vh;
+    display: grid;
+    grid-template-rows: repeat(4,auto);
+}
+
+.navbar .top.container .profile{
+    background-color: var(--text-main-color);
+    width: 2rem;
+    height: 2rem;
+    align-self: center;
+    justify-self: center;
+}
+
+.resizable .text{
+    color: var(--text-main-color);
+    padding: 20px;
+    font-size: 0.9rem;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.resizable {
+    background: var(--navbar-drop-color);
+    width: auto;
+    min-width: 15vw;
+    max-width: 25vw;
+    height: 100vh;
+    position: relative;
+    float: left;
+    margin-left: 50px;
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.resizable .resizers{
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.resizable .resizers .resizer{
+    width: 5px;
+    height: 100vh;
+    background: rgba(89, 87, 87, 0.45);
+    position: absolute;
+}
+
+.resizable .resizers .resizer.right {
+    color: transparent;
+    right: -5px;
+    top: 0;
+    cursor: ew-resize;
+}
+
+.content {
+    top: 0;
+    background-color: var(--backgroun-color);
+    position: sticky;
+    float: left;
+    width: 40rem;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.content .hide-drop{
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-color: aliceblue;
+    margin: 20px 20px 20px;
+    align-items: center;
+    justify-items: center;
+    border-radius: 50px;
+    display: grid;
+}
+
+
+.material-icons.arrow-left{
+    position: absolute;
+}
+
+.material-icons.arrow-right{
+    position: absolute;
+    visibility: hidden;
+}
