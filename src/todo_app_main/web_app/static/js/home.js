@@ -4,8 +4,6 @@ function makeResizableDiv(div) {
     const element = document.querySelector(div);
     const resizers = document.querySelectorAll(div + ' .resizer')
     const minimum_size = 20;
-    let max_size = (35 * window.innerWidth) / 100;
-    console.log(max_size);
     let original_width = 0;
     let original_height = 0;
     let original_x = 0;
@@ -29,9 +27,7 @@ function makeResizableDiv(div) {
         function resize(e) {
             if (clickDrop===false) {
                 console.log(clickDrop)
-                if (parseInt(element.style.width, 10) > max_size) {
-                    element.style.width = max_size + "px";
-                } else if (currentResizer.classList.contains('bottom-right')) {
+                if (currentResizer.classList.contains('bottom-right')) {
                     const width = original_width + (e.pageX - original_mouse_x);
                     const height = original_height + (e.pageY - original_mouse_y)
                     if (width > minimum_size) {
@@ -124,4 +120,5 @@ element.addEventListener("click",hideNavBarDrop);
 console.log(element)
 // Div resizable
 makeResizableDiv('.resizable')
+makeResizableDiv('.content')
 

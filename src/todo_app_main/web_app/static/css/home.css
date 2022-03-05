@@ -16,19 +16,19 @@
 body{
     margin: 0 auto !important;
     background-color: var(--backgroun-color);
-    overflow: clip;
+
     width: auto;
     height: auto;
 }
 
 .main {
     display: grid;
-    grid-template-columns: min-content min-content max-content;
+    grid-template-columns: min-content min-content min-content auto;
 }
 
 .navbar {
     height: 100vh;
-    width: 50px;
+    width: 3rem;
     background-color: var(--navbar-color);
     top: 0;
     left: 0;
@@ -67,8 +67,6 @@ body{
     border-radius: 50%;
  }
 
-
-
 .box-icon{
     position: relative;
     background-color: var(--text-main-color);
@@ -89,48 +87,55 @@ body{
     cursor: pointer;
 }
 
-
-
 .resizable .text{
     color: var(--text-main-color);
-    padding: 20px;
     font-size: 0.9rem;
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    align-self: center;
 }
 .resizable {
     background: var(--navbar-drop-color);
-    width: 25vw;
-    min-width: 15vw;
-    max-width: 35vw;
+    width: 15rem;
+    min-width: 15rem;
+    max-width: 20rem;
     height: 100vh;
     position: relative;
     float: left;
 }
 
 .resizable .container {
-    width: 90%;
     display: grid;
     grid-template-rows: max-content min-content auto min-content auto;
     overflow: hidden;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 .resizable .container .top.container {
-    width: 100%;
     display: grid;
     grid-template-rows: auto auto auto;
 }
 
-.resizable .container .top.container .block {
-    margin: 10px;
-    border-radius: 10%;
+.block {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: min-content auto auto;
 }
 
 .resizable .container .top.container .block:hover {
-    background-color: #e0d7d7;
+    background-color: rgba(224, 215, 215, 0.03);
+}
 
+.resizable .container .top.container .block.selected {
+    background-color: rgba(224, 215, 215, 0.35);
+}
+
+.resizable .container .top.container .block.selected:hover {
+    background-color: rgba(238, 230, 230, 0.35);
 }
 
 .resizable .resizers{
@@ -154,10 +159,38 @@ body{
 }
 
 .content {
+    width: 40vw;
+    max-width: 40vw;
+    min-width: 25vw;
     background-color: var(--backgroun-color);
-    width: 100%;
+}
+
+@media all and (min-width: 900px){
+    .content {
+        max-width: 65vw;
+        min-width: 25vw;
+    }
+}
+
+.content .resizers{
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.content .resizers .resizer{
+    width: 5px;
     height: 100vh;
-    overflow: hidden;
+    background: rgba(89, 87, 87, 0.45);
+    position: relative;
+}
+
+.content .resizers .resizer.right {
+    color: transparent;
+    float: right;
+    top: 0;
+    z-index: 300;
+    cursor: ew-resize;
 }
 
 .content .hide-drop {
@@ -185,4 +218,34 @@ body{
 .material-icons.arrow-right{
     position: absolute;
     visibility: hidden;
+}
+
+.span {
+    align-self: center;
+    justify-self: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #e0d7d7;
+}
+
+.info {
+    justify-self: end;
+    background-color: #252525;
+    width: 100%;
+    height: 100vh;
+}
+
+@media all and (max-width: 900px){
+    .info {
+        width: 0px;
+        visibility: hidden;
+    }
+    .content {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .content .resizers .resizer.right {
+        visibility: hidden;
+    }
 }
